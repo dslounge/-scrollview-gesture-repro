@@ -1,5 +1,5 @@
 import React, { RefObject, ComponentType } from "react";
-import { Animated, StyleSheet, View, Text } from "react-native";
+import { Animated, StyleSheet, View, Text, Image } from "react-native";
 import {
   Gesture,
   GestureDetector,
@@ -17,9 +17,8 @@ interface SwipeableItemProps {
 const styles = StyleSheet.create({
   container: {
     position: "relative",
-    backgroundColor: "white",
-    margin: 10,
-    padding: 10,
+    marginVertical: 8,
+    marginHorizontal: 16,
   },
   swipeBackground: {
     position: "absolute",
@@ -40,12 +39,19 @@ const styles = StyleSheet.create({
     backgroundColor: "#f0f0f0",
     padding: 16,
     borderRadius: 8,
-    marginVertical: 8,
+    height: 70,
   },
   itemText: {
     fontSize: 16,
     fontWeight: "600",
     color: "#333",
+  },
+  dummyImage: {
+    height: 200,
+  },
+  dummyText: {
+    color: "white",
+    margin: 10,
   },
 });
 
@@ -151,6 +157,17 @@ export default function HomeScreen() {
     <GestureHandlerRootView>
       <ScrollView ref={scrollRef}>
         <View>
+          <Image
+            source={{ uri: "https://via.placeholder.com/150" }}
+            style={styles.dummyImage}
+          />
+          <Text style={styles.dummyText}>
+            Hey, I've been trying to figure out how to set up pan gestures
+            inside a ScrollView, but it's very unclear how to do this. The white
+            boxes below are designed to be swipeable while still allowing the
+            ScrollView to scroll up and down. This setup aims to balance swipe
+            interactions with smooth vertical scrolling.
+          </Text>
           {DUMMY_ITEMS.map((item) => (
             <SwipeableItem
               key={item.id}
