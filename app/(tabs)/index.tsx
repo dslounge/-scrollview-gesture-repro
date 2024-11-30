@@ -4,7 +4,6 @@ import {
   Gesture,
   GestureDetector,
   GestureHandlerRootView,
-  NativeViewGestureHandler,
   ScrollView,
 } from "react-native-gesture-handler";
 
@@ -150,23 +149,21 @@ export default function HomeScreen() {
   const scrollRef = React.useRef<ScrollView>(null);
   return (
     <GestureHandlerRootView>
-      <NativeViewGestureHandler ref={scrollRef}>
-        <ScrollView>
-          <View>
-            {DUMMY_ITEMS.map((item) => (
-              <SwipeableItem
-                key={item.id}
-                onSwipe={() => console.log(item.id)}
-                scrollRef={scrollRef}
-              >
-                <View style={styles.itemContainer}>
-                  <Text style={styles.itemText}>{item.title}</Text>
-                </View>
-              </SwipeableItem>
-            ))}
-          </View>
-        </ScrollView>
-      </NativeViewGestureHandler>
+      <ScrollView ref={scrollRef}>
+        <View>
+          {DUMMY_ITEMS.map((item) => (
+            <SwipeableItem
+              key={item.id}
+              onSwipe={() => console.log(item.id)}
+              scrollRef={scrollRef}
+            >
+              <View style={styles.itemContainer}>
+                <Text style={styles.itemText}>{item.title}</Text>
+              </View>
+            </SwipeableItem>
+          ))}
+        </View>
+      </ScrollView>
     </GestureHandlerRootView>
   );
 }
