@@ -16,14 +16,5 @@ Any advice on resolving these issues or improving the setup would be greatly app
 
 Here’s a preview of the current behavior. I'm able to use the ScrollView swipe up/down between the items, but not on the items themselves.
 
-
-
 https://github.com/user-attachments/assets/63df5cfc-c1bc-4f25-987d-e6ac68fd439b
 
-
-
-
-https://github.com/user-attachments/assets/0052c7c3-4de5-4a8f-ad6b-4d6a0dc0257a
-
-
-<video src="demo.mov" controls width="600"></video>
