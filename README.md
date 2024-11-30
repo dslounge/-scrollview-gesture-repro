@@ -1,50 +1,19 @@
-# Welcome to your Expo app 👋
+# ScrollView Gesture Repro
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This repository demonstrates a use case for React Native Gesture Handler that I’m having trouble implementing on web.
 
-## Get started
+The app features a ScrollView from react-native-gesture-handler, with child components that include various content and SwipeableItems. These items utilize a GestureDetector and a custom Gesture.Pan() to enable horizontal swipe gestures.
 
-1. Install dependencies
+The challenge is getting these components to work seamlessly together. The SwipeableItems should respond to horizontal pan gestures without interfering with the vertical scrolling of the ScrollView. However, the current setup causes Gesture.Pan() to capture all gesture events, preventing smooth scrolling. I would expect that the combination of `failOffsetY` and `simultaneousWithExternalGesture` should work.
 
-   ```bash
-   npm install
-   ```
+Additionally, I’ve found the documentation to be a bit confusing. It’s unclear how to set up this combination of gestures, as there’s no mention of a ScrollView component. The documentation also references a waitFor method for managing gestures, but this method doesn’t seem to be available with Gesture.Pan().
 
-2. Start the app
+Any advice on resolving these issues or improving the setup would be greatly appreciated! Examples in the documentation for common patterns like this one would also be incredibly helpful.
 
-   ```bash
-    npx expo start
-   ```
+---
 
-In the output, you'll find options to open the app in a
+## Demo
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Here’s a preview of the current behavior. I'm able to use the ScrollView swipe up/down between the items, but not on the items themselves.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+<video src="demo.mov" controls width="600"></video>
